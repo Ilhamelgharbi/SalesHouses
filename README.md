@@ -72,7 +72,8 @@ Dans un marché immobilier en constante évolution, l’estimation précise des 
 ├── models/
 │   └── model.pkl
 │
-└── README.md
+└── README.md│
+└──requirements.txt 
 ```
 
 ---
