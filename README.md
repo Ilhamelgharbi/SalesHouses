@@ -1,158 +1,125 @@
 
-# 🏠 Estimateur Immobilier Intelligent - Maroc
 
-Application professionnelle d'estimation de prix immobilier au Maroc, basée sur l'intelligence artificielle et l'analyse avancée de données.
 
----
+# 🏠 Estimateur Immobilier Marocain - SalesHouses
 
-## 🚀 Fonctionnalités Principales
-
-- **Prédiction de prix en temps réel** : Estimation instantanée selon les caractéristiques du bien
-- **Interface web intuitive** : Utilisation de Streamlit pour une expérience utilisateur optimale
-- **Analyse comparative** : Visualisation des prix moyens par ville
-- **Conseils personnalisés** : Suggestions pour augmenter la valeur de votre bien
-- **Visualisations interactives** : Graphiques, heatmaps, boxplots, et rapports détaillés
+Outil d'estimation automatique du prix des appartements au Maroc, basé sur le machine learning et conçu pour la plateforme SalesHouses.
 
 ---
 
-## 🛠️ Installation & Démarrage
+## 📌 Contexte
 
-### Prérequis
-- Python 3.7 ou plus récent
-- pip (gestionnaire de paquets)
+Dans un marché immobilier en constante évolution, l’estimation précise des prix est essentielle pour les acheteurs, vendeurs et agences. Ce projet propose un simulateur intelligent permettant d’obtenir une estimation rapide et fiable du prix de vente d’un appartement marocain, à partir de ses caractéristiques principales.
 
-### Installation
+---
+
+## 🚀 Fonctionnalités
+
+- Chargement et analyse exploratoire des données (EDA)
+- Nettoyage, transformation et préparation des variables
+- Détection et gestion des valeurs manquantes et aberrantes
+- Feature engineering et sélection des variables explicatives
+- Entraînement, validation et optimisation de plusieurs modèles de régression
+- Sélection et sauvegarde du meilleur modèle (model.pkl)
+- Documentation claire et reproductible
+
+---
+
+## 🧱 Pipeline de traitement
+
+1. **Chargement des données**
+   - Importation des bibliothèques (pandas, numpy)
+   - Lecture du fichier CSV (appartements-data-db.csv)
+   - Aperçu et structure des données (df.head(), df.info())
+2. **Analyse exploratoire (EDA)**
+   - Dimensions, types, valeurs manquantes, doublons
+   - Statistiques descriptives, histogrammes, corrélations
+   - Visualisation des relations avec le prix
+3. **Prétraitement**
+   - Transformation de `equipment` en variables booléennes
+   - Nettoyage de la colonne `price` (conversion en float)
+   - Suppression des colonnes inutiles
+   - Uniformisation de `city_name` (arabe ➝ français)
+   - Gestion des valeurs manquantes (suppression, imputation)
+   - Feature engineering : `price_per_m2`, `total_rooms`, `log_price`
+   - Détection et traitement des outliers (IQR, capping)
+   - Encodage des variables catégorielles (LabelEncoder)
+   - Mise à l’échelle des variables numériques (StandardScaler)
+4. **Sélection des variables explicatives**
+   - Corrélation avec la cible, filtrage et vérification des redondances
+5. **Séparation des données**
+   - Définition de la cible `y` et des features `X`
+   - Split entraînement/test (80/20)
+6. **Entraînement des modèles**
+   - Régression Linéaire, Random Forest, SVR, Gradient Boosting
+   - Évaluation (MAE, RMSE, R²), validation croisée (5-fold, 10-fold)
+   - Optimisation des hyperparamètres (GridSearchCV, RandomizedSearchCV)
+   - Sélection et sauvegarde du meilleur modèle
+
+---
+
+## 📂 Structure du projet
+
+```
+/saleshouse
+│
+├── data/
+│   └── appartements-data-db.csv
+│
+├── notebooks/
+│   └── analyse_immobiliere_complete.ipynb
+│
+├── models/
+│   └── model.pkl
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+1. Cloner le projet
+2. Installer les dépendances :
 ```bash
-git clone <repository-url>
-cd gemini
 pip install -r requirements.txt
 ```
 
-### Génération du modèle (si nécessaire)
-```bash
-python test3.py
-```
-
-### Lancement de l'application
-```bash
-streamlit run streamlit_app.py
-```
-Ou double-cliquez sur `run_app.bat` (Windows).
-
 ---
 
-## 📊 Utilisation
+## 📝 Utilisation
 
-### Interface Utilisateur
-- **Paramètres** : Sélection de la ville, surface, nombre de chambres, salles de bains, salons
-- **Équipements** : Choix parmi 16 équipements (Ascenseur, Parking, Climatisation, etc.)
-- **Estimation** : Cliquez sur "🔮 Estimer le Prix" pour obtenir une prédiction
+- Ouvrir et exécuter le notebook `analyse_immobiliere_complete.ipynb` pour suivre le pipeline complet
+- Exemple de prédiction Python :
 
-### Exemple de Prédiction en Python
 ```python
 import joblib
 import pandas as pd
 
-# Charger le modèle entraîné
-model = joblib.load('model2.pkl')
+model = joblib.load('models/model.pkl')
 
-# Exemple de données (adapter selon votre jeu de données)
-sample_data = pd.DataFrame({
-    'price_per_m2': [15000],
+
     'surface_area': [80],
-    'nb_baths': [2],
     'nb_rooms': [3],
-    'total_rooms': [4],
-    'Ascenseur': [1],
-    'Parking': [0],
-    'Climatisation': [1],
-    'Terrasse': [0],
-    'Chauffage': [1],
-    'Concierge': [0],
-    'Balcon': [1]
+    'nb_baths': [2],
+    'price_per_m2': [15000],
+    # Ajouter les colonnes équipements (0 ou 1)
 })
 
-# Prédiction
-predictions = model.predict(sample_data)
-print(f"Prix prédit : {predictions[0]:,.2f} MAD")
+prix = model.predict(data)
+print(f"Prix estimé : {prix[0]:,.2f} MAD")
 ```
 
 ---
 
-## 🔧 Fichiers Nécessaires
+## 🔄 Mise à jour du modèle
 
-- `model2.pkl` : Modèle IA entraîné
-- `appartements-data-db.csv` : Données d'entraînement
-- (Autres fichiers .pkl selon la version du projet)
-
----
-
-## 📈 Performance & Modélisation
-
-- **Algorithmes** : Gradient Boosting, Random Forest, SVR, Régression Linéaire
-- **Validation croisée** : R² > 0.70 sur 1400+ appartements
-- **Features** : Sélection automatique et ingénierie de variables (price_per_m2, total_rooms, équipements...)
-- **Traitement avancé** : Nettoyage, gestion des valeurs manquantes, outliers, encodage, normalisation
+- Ajouter de nouvelles données dans `data/appartements-data-db.csv`
+- Relancer l’entraînement dans le notebook
+- Remplacer le fichier `models/model.pkl`
 
 ---
 
-## 🏙️ Villes Supportées
+## 👤 Auteur
 
-- Casablanca, Rabat, Marrakech, Fès, Tanger, Agadir, Kénitra, Mohammedia, Salé, Temara, ...
-
-## 🎯 Équipements Supportés
-
-- Ascenseur, Parking, Climatisation, Terrasse, Balcon, Piscine, Sécurité, Concierge, Chauffage, Cuisine équipée, Jardin, Vue mer, Meublé, Garage, Cave, Interphone
-
----
-
-## 🔍 Fonctionnalités Avancées
-
-- Calculs automatiques : ratios, densité, interactions
-- Catégorisation intelligente : surface, niveau de luxe, prix par ville
-- Conseils personnalisés : suggestions d'amélioration et estimation d'impact
-
----
-
-## 📱 Interface Responsive
-
-Compatible desktop, tablette et mobile
-
----
-
-## 🛡️ Sécurité & Confidentialité
-
-- Données traitées localement
-- Aucune donnée personnelle stockée
-- Utilisation hors-ligne possible
-
----
-
-## 🔄 Mise à Jour du Modèle
-
-1. Ajoutez vos nouvelles données à `appartements-data-db.csv`
-2. Exécutez `python test3.py` pour réentraîner
-3. Relancez l'application
-
----
-
-## 📞 Support & Questions
-
-- Vérifiez la présence des fichiers .pkl
-- Assurez-vous que Python 3.7+ et les dépendances sont installés
-
----
-
-## 🌟 Roadmap & Fonctionnalités Futures
-
-- [ ] Support maisons, villas
-- [ ] Prédiction de tendances du marché
-- [ ] Analyse de rentabilité locative
-- [ ] Export PDF
-- [ ] API REST
-
----
-
-## 📄 Licence
-
-Projet éducatif et démonstratif. Les estimations sont informatives et non contractuelles. Pour une expertise officielle, consultez un professionnel immobilier.
+ILHAM EL GHARBI
