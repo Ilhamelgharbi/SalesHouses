@@ -86,6 +86,7 @@ saleshouse/
 │   └── model.pkl                          # Modèle ML entraîné et optimisé
 │
 ├── 📄 test_model.ipynb                    # Notebook de tests interactifs
+├── 📄 test.py                             # Tests unitaires automatisés
 ├── 📄 requirements.txt                    # Dépendances Python
 ├── 📄 README.md                           # Documentation (ce fichier)
 └── 📄 LICENSE                             # Licence MIT
@@ -127,7 +128,11 @@ saleshouse/
 
 4. **Vérifier l'installation**
    ```bash
+   # Option 1: Tests unitaires automatisés
    python test.py
+   
+   # Option 2: Tests interactifs avec notebook (recommandé)
+   jupyter notebook test_model.ipynb
    ```
 
 ---
@@ -239,17 +244,18 @@ python test.py
 - ✅ Vérification des types de données
 - ✅ Tests sur 5 exemples d'appartements réels
 
-### 📊 Tests interactifs
+### 📊 Tests interactifs avec notebook (Recommandé)
 
 ```bash
 jupyter notebook test_model.ipynb
 ```
 
 **Fonctionnalités du notebook de test :**
+- Interface interactive avec visualisations
 - Analyse détaillée des prédictions
 - Comparaison avec les prix réels
-- Visualisations des performances
-- Statistiques complètes
+- Statistiques complètes et graphiques
+- Possibilité de modifier les données de test
 
 ### 📈 Exemple de résultats
 
@@ -348,7 +354,11 @@ Les contributions sont les bienvenues ! Ce projet est open source et bénéficie
 3. **Développer** votre amélioration
 4. **Tester** vos modifications
    ```bash
+   # Tests automatisés
    python test.py
+   
+   # Tests interactifs (recommandé pour développement)
+   jupyter notebook test_model.ipynb
    ```
 5. **Commit** vos changements
    ```bash
@@ -417,7 +427,14 @@ assert 20 <= surface_area <= 500
 
 1. **📖 Consultez la documentation** - Vérifiez les [Problèmes connus](#problèmes-connus-et-solutions)
 2. **🔍 Recherchez dans les issues** - [Issues GitHub](https://github.com/hamidoufakir/saleshouse/issues)
-3. **🧪 Testez votre installation** - `python test.py`
+3. **🧪 Testez votre installation** 
+   ```bash
+   # Tests automatisés
+   python test.py
+   
+   # Tests interactifs
+   jupyter notebook test_model.ipynb
+   ```
 4. **📝 Créez une nouvelle issue** avec votre environnement et logs d'erreur
 
 ---
