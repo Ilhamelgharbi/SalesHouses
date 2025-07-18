@@ -121,6 +121,6 @@ print(f"Prix estimé : {prix[0]:,.2f} MAD")
 
 ---
 
-## 👤 Auteur
+##  Auteur
 
 ILHAM EL GHARBI
