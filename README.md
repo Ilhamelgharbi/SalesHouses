@@ -106,7 +106,7 @@ saleshouse/
 
 1. **Cloner le repository**
    ```bash
-   git clone https://github.com/hamidoufakir/saleshouse.git
+   git clone https://github.com/ilhamelgharbi/saleshouse.git
    cd saleshouse
    ```
 
@@ -426,7 +426,7 @@ assert 20 <= surface_area <= 500
 ### 📞 Obtenir de l'aide
 
 1. **📖 Consultez la documentation** - Vérifiez les [Problèmes connus](#problèmes-connus-et-solutions)
-2. **🔍 Recherchez dans les issues** - [Issues GitHub](https://github.com/hamidoufakir/saleshouse/issues)
+2. **🔍 Recherchez dans les issues** - [Issues GitHub](https://github.com/ilhamelgharbi/saleshouse/issues)
 3. **🧪 Testez votre installation** 
    ```bash
    # Tests automatisés
@@ -445,8 +445,8 @@ assert 20 <= surface_area <= 500
 - 🚀 *Développeur IA Junior*
 - 🏢 *SalesHouses*
 - 📧 **Email** : [ilham@gmail.com](mailto:ilham@saleshouses.com)
-- 💼 **LinkedIn** : [hamid-oufakir](https://linkedin.com/in/ilhamelgharbi)
-- 🐙 **GitHub** : [@hamidoufakir](https://github.com/iham)
+- 💼 **LinkedIn** : [ilhamelgharbi](https://linkedin.com/in/ilhamelgharbi)
+- 🐙 **GitHub** : [@ilhamelgharbi](https://github.com/iham)
 
 ### 🎯 Expertise
 - **Machine Learning** : Régression, Classification, Clustering
@@ -510,4 +510,5 @@ Ce projet est sous licence **MIT License** - voir le fichier [LICENSE](LICENSE) 
 *Dernière mise à jour : 18 Juillet 2025*
 
 </div>
+
 
