@@ -441,12 +441,12 @@ assert 20 <= surface_area <= 500
 
 ## 👤 Auteur
 
-**Hamid Oufakir**
+**Ilham el gharbi**
 - 🚀 *Développeur IA Junior*
 - 🏢 *SalesHouses*
-- 📧 **Email** : [hamid.oufakir@saleshouses.com](mailto:hamid.oufakir@saleshouses.com)
-- 💼 **LinkedIn** : [hamid-oufakir](https://linkedin.com/in/hamid-oufakir)
-- 🐙 **GitHub** : [@hamidoufakir](https://github.com/hamidoufakir)
+- 📧 **Email** : [ilham@gmail.com](mailto:ilham@saleshouses.com)
+- 💼 **LinkedIn** : [hamid-oufakir](https://linkedin.com/in/ilhamelgharbi)
+- 🐙 **GitHub** : [@hamidoufakir](https://github.com/iham)
 
 ### 🎯 Expertise
 - **Machine Learning** : Régression, Classification, Clustering
@@ -510,3 +510,4 @@ Ce projet est sous licence **MIT License** - voir le fichier [LICENSE](LICENSE) 
 *Dernière mise à jour : 18 Juillet 2025*
 
 </div>
+
